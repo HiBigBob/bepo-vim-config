@@ -1,0 +1,60 @@
+snippet var_dump
+options head
+    var_dump(${1});
+
+snippet var_dump die
+options head
+    var_dump(${0});die;
+
+snippet if?
+options head
+    $${1} = (${2}) ? ${3} : ${4};
+
+snippet ifelse
+options head
+    if (${1}) {
+        ${2}
+    } else {
+        ${3}
+    }
+    ${0}
+
+snippet if
+options head
+    if (${1}) {
+        ${0}
+    }
+
+snippet pr
+    print_r(${0});
+
+snippet prs
+    print_r(${0}, 1);
+
+snippet foreachk
+    foreach ($${1:variable} as $${2:key} => $${3:value}) {
+        ${0}
+    }
+
+snippet foreach
+    foreach ($${1:variable} as $${2:value}) {
+        ${0}
+    }
+
+snippet for
+    for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
+        ${0}
+    }
+
+snippet switch
+    switch ($${1:variable}) {
+        case '${2:value}':
+            ${3}
+            break;
+        default:
+            ${4}
+            break;
+    }
+
+snippet t.
+    $this->${1}
