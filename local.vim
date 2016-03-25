@@ -59,6 +59,9 @@ imap <pagedown> <nop>
 
 inoremap ss <esc> :w<cr>
 inoremap rr <esc>
+noremap à :w<cr>
+
+" Mode Hardcore
 "nnoremap <up> <nop>
 "nnoremap <down> <nop>
 "nnoremap <left> <nop>
@@ -66,7 +69,7 @@ inoremap rr <esc>
 
 nnoremap <c-n> :tabn<CR>
 nnoremap <c-t> :tabp<CR>
-nnoremap <c-d> :CtrlPMRUFiles<CR>
+
 " Shift+PageUp/Down -> Buffer prev/next
 map <s-pageup> :bp<cr>
 map <s-pagedown> :bn<cr>
@@ -78,7 +81,7 @@ nnoremap <leader>t :tabnew<cr>
 
 "Surround
 nnoremap <leader>" viwc"<esc>pa"<esc>
-nnoremap <leader>' viwc"<esc>pa'<esc>
+nnoremap <leader>' viwc'<esc>pa'<esc>
 
 nnoremap <leader>av :tabnew ~/.vim/local.vim<CR>
 nnoremap <leader>rv :source ~/.vim/local.vim<CR>
@@ -87,7 +90,7 @@ nnoremap <leader>rv :source ~/.vim/local.vim<CR>
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)" ====== PLUGINS ======
+nmap ga <Plug>(EasyAlign)
 
 " The Silver Searcher
 if executable('ag')
@@ -105,6 +108,8 @@ nnoremap <leader>f :Ag "\b<C-R><C-W>\b"<CR><CR>
 "nnoremap <leader>o <c-w>gfn<cr>
 
 "nnoremap <leader>p :CtrlP<cr>
+nnoremap <c-d> :CtrlPMRUFiles<CR>
+nnoremap <c-g> :CtrlPFunky<Cr>
 let g:ctrlp_max_files=0
 
 nnoremap <F2> <c-w><c-w><CR>
@@ -112,7 +117,7 @@ nnoremap <F2> <c-w><c-w><CR>
 imap <leader>q  <Esc>
 nnoremap <leader>q  :q<CR>
 
-" list of files to ignore (for FuzzyFinder and NERDTree)
+" list of files to ignore (for NERDTree)
 "
 let ignore = '\v\~$'
 let ignore .= '|\.bak$'
@@ -144,10 +149,7 @@ let g:NERDTreeIgnore = [ignore]
 " Gundo
 nnoremap <leader>h :GundoToggle<cr>
 
-nnoremap <c-g> :CtrlPFunky<Cr>
-
-noremap à :w<cr>
-
+" EasyMotion
 "map è <Plug>(easymotion-bd-w)
 "map è^ <Plug>(easymotion-bd-jk
 nmap  è <Plug>(easymotion-w)
