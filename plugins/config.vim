@@ -1,14 +1,3 @@
-"
-" WebVim Configuration : Plugins configuration
-"
-" author: Bertrand Chevrier <chevrier.bertrand@gmail.com>
-" source: https://github.com/krampstudio/dotvim
-" year  : 2015
-"
-
-" TODO split by plugin ?
-
-
 " [> NERDTree <]
 
 " on vim enter opens nerd tree
@@ -30,29 +19,8 @@ let g:NERDTreeWinSize = 35
 " show hidden files
 let g:NERDTreeShowHidden=1
 
-" single click to open nodes
-" let g:NERDTreeMouseMode=3
-
 " ignored files
 let g:NERDTreeIgnore=['\.swp$', '\~$']
-"nnoremap <c-n> :NERDTreeToggle<cr>
-
-
-" [> NERDCommenter <]
-
-noremap <c-_> :call NERDComment(0, "Toggle")<cr>
-
-
-" [> Airline <]
-
-" status line always opened
-set laststatus=2
-
-let g:airline#extensions#tabline#enabled = 1
-
-"  powerline font
-let g:airline_powerline_fonts=1
-
 
 " [> EditorConfig <]
 
@@ -139,11 +107,10 @@ let g:easy_align_ignore_groups = ['Comment']
 " [> multiple cursor <]
 
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-m>'
-let g:multi_cursor_prev_key='<C-z>'
-let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_next_key='<c-m>'
+let g:multi_cursor_prev_key='<c-z>'
+let g:multi_cursor_skip_key='<c-x>'
 let g:multi_cursor_quit_key='<esc>'
-
 
 " [> JsBeautify <]
 

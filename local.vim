@@ -61,12 +61,6 @@ inoremap ss <esc> :w<cr>
 inoremap rr <esc>
 noremap à :w<cr>
 
-" Mode Hardcore
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
-
 nnoremap <c-n> :tabn<CR>
 nnoremap <c-t> :tabp<CR>
 
@@ -150,10 +144,7 @@ let g:NERDTreeIgnore = [ignore]
 nnoremap <leader>h :GundoToggle<cr>
 
 " EasyMotion
-"map è <Plug>(easymotion-bd-w)
-"map è^ <Plug>(easymotion-bd-jk
 nmap  è <Plug>(easymotion-w)
-"nmap è <Plug>(easymotion-overwin-w)
 
 " {W} -> [É]
 " ——————————
@@ -205,18 +196,9 @@ noremap L S
 " {K} = « Line »                (n = caractère, N = ligne)
 noremap k n
 noremap K N
-" Corollaire : correction orthographique
-"noremap ]k ]s
-"noremap [k [s
 
 " Désambiguation de {g}
 " —————————————————————
-" ligne écran précédente / suivante (à l'intérieur d'une phrase)
-"noremap gs gk
-"noremap gt gj
-" onglet précédant / suivant
-"noremap gb gT
-"noremap gé gt
 " optionnel : {gB} / {gÉ} pour aller au premier / dernier onglet
 noremap gB :exe "silent! tabfirst"<CR>
 noremap gÉ :exe "silent! tablast"<CR>
@@ -291,16 +273,6 @@ let g:ctrlp_prompt_mappings = {
     \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
     \ }
 
-" let g:ycm_key_list_select_completion   = ['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-t>', '<Up>']
-"
-" let g:SuperTabDefaultCompletionType    = '<C-n>'
-" let g:SuperTabCrMapping                = 0
-"
-" let g:UltiSnipsExpandTrigger='<C-q>'
-" let g:UltiSnipsJumpForwardTrigger='<C-n>'
-" let g:UltiSnipsJumpBackwardTrigger='<C-t>'
-" let g:UltiSnipsSnippetsDir='~/.vim/mydir/UltiSnips'
 set encoding=utf-8
 scriptencoding utf-8
 let g:airline_powerline_fonts = 1
@@ -368,29 +340,10 @@ inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 
 " Recommended key-mappings.
-" <CR>: close popup and save indent.
-" inoremap <silent> <C-z> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function()
-  " return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  " return pumvisible() ? "\<C-y>" : "\<CR>"
-" endfunction
-" <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -404,12 +357,6 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-" let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 let g:neosnippet#disable_runtime_snippets = {
         \   '_' : 1,
@@ -421,29 +368,15 @@ imap <C-m>     <Plug>(neosnippet_expand_or_jump)
 smap <C-m>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-m>     <Plug>(neosnippet_expand_target)
 
-" " Plugin key-mappings.
-" imap <C-m>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-m>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-m>     <Plug>(neosnippet_expand_target)
-" imap <C-m>     <Plug>(neosnippet_expand_target)
-"
-" " SuperTab like snippets behavior.
-" " imap <expr><TAB>
-" " \ pumvisible() ? "\<C-n>" :
-" " \ neosnippet#expandable_or_jumpable() ?
-" " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-" \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-"
-" " For conceal markers.
+ " For conceal markers.
 if has('conceal')
   set conceallevel=2 concealcursor=nvi
 endif
-"
-"
 " Like ctrlp.vim settings.
 call unite#custom#profile('default', 'context', {
 \   'start_insert': 1,
 \   'winheight': 10,
 \   'direction': 'botright',
 \ })
+
+inoremap <CR> <esc>o
