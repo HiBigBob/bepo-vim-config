@@ -19,6 +19,7 @@ color codeschool
 colorscheme codeschool
 set guifont=Monospace\ 8
 
+" Ctrl+C -> Copy to clipboard
 vnoremap <C-C> "+ygv
 
 " Ctrl+V -> Paste from clipboard
@@ -26,11 +27,6 @@ map <C-V> "+gP
 cmap <C-V> <C-R>+
 exe 'inoremap <script> <C-V> <C-G>u' . paste#paste_cmd['i']
 exe 'vnoremap <script> <C-V> ' . paste#paste_cmd['v']
-
-" Ctrl+S -> Save
-"noremap <C-S> :update<CR>
-"vnoremap <C-S> <C-C>:update<CR>
-"inoremap <C-S> <C-O>:update<CR>
 
 " Ctrl+A -> Select all
 noremap <C-A> <esc>ggVG<CR>
@@ -91,11 +87,8 @@ if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  "let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
-  " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
 nnoremap <leader>f :Ag "\b<C-R><C-W>\b"<CR><CR>
@@ -107,7 +100,6 @@ nnoremap <c-g> :CtrlPFunky<Cr>
 let g:ctrlp_max_files=0
 
 nnoremap <F2> <c-w><c-w><CR>
-"nnoremap <leader>s :w<CR>
 imap <leader>q  <Esc>
 nnoremap <leader>q  :q<CR>
 
