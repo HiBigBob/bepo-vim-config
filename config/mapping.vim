@@ -1,7 +1,5 @@
 "
-" WebVim Configuration : global mapping
-"
-" author: Bertrand Chevrier <chevrier.bertrand@gmail.com>
+" Configuration : mapping
 "
 
 " leader

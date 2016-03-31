@@ -1,5 +1,5 @@
 "
-" WebVim Configuration entry point
+" Vim Configuration
 "
 " author: Adrien Bouttier <hibigbob@gmail.com>
 " source: https://github.com/hibigbob/bepo-vim-config
@@ -21,7 +21,6 @@ let s:pluginConf = s:vimDir.'/plugins/config.vim'
 
 let s:configSetting = s:vimDir.'/config/setting.vim'
 let s:configMapping = s:vimDir.'/config/mapping.vim'
-let s:configAbbrev  = s:vimDir.'/config/abbrev.vim'
 let s:configAutocmd  = s:vimDir.'/config/autocmd.vim'
 
 let s:userConfig  = s:vimDir.'/local.vim'
@@ -32,22 +31,18 @@ if !isdirectory(s:pluginDir)
 
     echom " "
     echom "Welcome to Vim"
-    echom " > the vim IDE for web dev <"
     echom " "
     echom "Checking dependencies :"
     if !executable('node') || !executable('npm')
         echom " [ERR] node.js and npm are required, please install them before continuing."
-    	echom " "
-    else
-
-        echom "  - nodejs   : ok"
-        echom "  - npm      : ok"
-        echom "  - eslint   : " . (executable('eslint')   ? "ok" : "no (optional)")
-        echom "  - jsonlint : " . (executable('jsonlint') ? "ok" : "no (optional)")
-        echom "  - csslint  : " . (executable('csslint')  ? "ok" : "no (optional)")
-        echom " done."
-
         echom " "
+    else
+        echom " - nodejs   : ok"
+        echom " - npm      : ok"
+        echom " - eslint   : " . (executable('eslint')   ? "ok" : "no (optional)")
+        echom " - jsonlint : " . (executable('jsonlint') ? "ok" : "no (optional)")
+        echom " - csslint  : " . (executable('csslint')  ? "ok" : "no (optional)")
+        echom " done."
         echom "We are going to install the plugins : "
         echom " 1. take a coffee"
         echom " 2. reload vim"
@@ -56,21 +51,19 @@ if !isdirectory(s:pluginDir)
 
         exec ":source ".s:pluginDef
 
-	"Install plugins on first run
-	autocmd VimEnter * PlugInstall
+    "Install plugins on first run
+    autocmd VimEnter * PlugInstall
     endif
 else
 
     " Loads the global config, mapping and settings
     exec ":source ".s:configSetting
     exec ":source ".s:configMapping
-    exec ":source ".s:configAbbrev
     exec ":source ".s:configAutocmd
 
     " Loads plugins def and config
     exec ":source ".s:pluginDef
     exec ":source ".s:pluginConf
-
 
     " user configuration
     if filereadable(s:userConfig)

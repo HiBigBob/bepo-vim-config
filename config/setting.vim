@@ -1,9 +1,5 @@
 "
-" WebVim Configuration : global settings
-"
-" author: Bertrand Chevrier <chevrier.bertrand@gmail.com>
-" source: https://github.com/krampstudio/dotvim
-" year  : 2015
+" Configuration : settings
 "
 
 " wrap end of line
