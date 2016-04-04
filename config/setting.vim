@@ -6,8 +6,8 @@
 set wrap
 
 " show line numbers
-" set number
-set relativenumber
+set number
+" set relativenumber
 
 " syntax highlighting
 "syntax on
