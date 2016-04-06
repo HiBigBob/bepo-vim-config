@@ -51,5 +51,6 @@ Plug 'edkolev/promptline.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'shougo/unite.vim'
+Plug 'shawncplus/phpcomplete.vim'
 
 call plug#end()
