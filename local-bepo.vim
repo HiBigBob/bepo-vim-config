@@ -91,11 +91,12 @@ if executable('ag')
 
   let g:ctrlp_use_caching = 0
 endif
-nnoremap <leader>f :Ag "\b<C-R><C-W>\b"<CR><CR>
-"nnoremap <leader>o <c-w>gfn<cr>
+nnoremap <leader>f :Ag "\b<C-R><C-W>\b"<CR><CR><C-w>
+nnoremap <leader>o <c-w>gfn<cr>
 
 "nnoremap <leader>p :CtrlP<cr>
 nnoremap <c-d> :CtrlPMRUFiles<CR>
+nnoremap <c-l> :CtrlP<CR>
 nnoremap <c-g> :CtrlPFunky<Cr>
 let g:ctrlp_max_files=0
 
@@ -118,18 +119,18 @@ let ignore .= '|vendor'
 let ignore .= '|.git'
 let ignore .= '|.bzr'
 
-if filereadable(".gitignore")
-  for line in readfile(".gitignore")
-    let line = substitute(line, '\.', '\\.', 'g')
-    let line = substitute(line, '\*', '.*', 'g')
-    let ignore .= '|^' . line
-  endfor
-endif
-
+" if filereadable(".gitignore")
+"   for line in readfile(".gitignore")
+"     let line = substitute(line, '\.', '\\.', 'g')
+"     let line = substitute(line, '\*', '.*', 'g')
+"     let ignore .= '|^' . line
+"   endfor
+" endif
+"
 "NERD Tree
-nnoremap <F12> :NERDTreeTabsToggle<cr>
-inoremap <F12> <esc>:NERDTreeTabsToggle<cr><c-w>la
-let g:nerdtree_tabs_open_on_gui_startup=0
+nnoremap <F12> :NERDTreeToggle<cr>
+inoremap <F12> <esc>:NERDTreeToggle<cr><c-w>la
+let g:nerdtree_tabs_open_on_gui_startup=1
 let g:NERDTreeIgnore = [ignore]
 
 " Gundo
@@ -302,8 +303,6 @@ let g:promptline_preset = {
         \'x': [ promptline#slices#git_status() ],
         \'warn': [ promptline#slices#last_exit_code() ]}
 
-
-
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplete.
@@ -331,6 +330,13 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+
 " Recommended key-mappings.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
@@ -343,6 +349,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -356,9 +363,9 @@ let g:neosnippet#disable_runtime_snippets = {
 
 let g:neosnippet#snippets_directory='~/.vim/mydir'
 
-imap <C-m>     <Plug>(neosnippet_expand_or_jump)
-smap <C-m>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-m>     <Plug>(neosnippet_expand_target)
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
  " For conceal markers.
 if has('conceal')

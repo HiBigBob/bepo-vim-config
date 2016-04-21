@@ -2,6 +2,7 @@
 call plug#begin($HOME.'/.vim/plugins/plugged')
 
 Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'goatslacker/mango.vim'
 Plug 'bling/vim-airline', { 'do' : $HOME.'/.vim/fonts/install' }
 Plug 'vim-airline/vim-airline-themes'

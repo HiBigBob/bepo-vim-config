@@ -14,6 +14,7 @@ filetype plugin on
 let s:vimDir = $HOME.'/.vim'
 
 let g:hardcoreMode = 0
+let g:bepoMode = 1
 
 let s:pluginDir  = s:vimDir.'/plugins/plugged'
 let s:pluginDef  = s:vimDir.'/plugins/def.vim'
@@ -23,7 +24,8 @@ let s:configSetting = s:vimDir.'/config/setting.vim'
 let s:configMapping = s:vimDir.'/config/mapping.vim'
 let s:configAutocmd  = s:vimDir.'/config/autocmd.vim'
 
-let s:userConfig  = s:vimDir.'/local.vim'
+let s:userConfigClassic  = s:vimDir.'/local-classic.vim'
+let s:userConfigBepo  = s:vimDir.'/local-bepo.vim'
 
 if !isdirectory(s:pluginDir)
 
@@ -65,9 +67,13 @@ else
     exec ":source ".s:pluginDef
     exec ":source ".s:pluginConf
 
-    " user configuration
-    if filereadable(s:userConfig)
-        exec ":source ".s:userConfig
+    if g:bepoMode == 1
+        if filereadable(s:userConfigBepo)
+            exec ":source ".s:userConfigBepo
+        endif
+    else
+        if filereadable(s:userConfigClassic)
+            exec ":source ".s:userConfigClassic
+        endif
     endif
-
 endif
