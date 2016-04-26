@@ -73,8 +73,8 @@ nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>" viwc"<esc>pa"<esc>
 nnoremap <leader>' viwc'<esc>pa'<esc>
 
-nnoremap <leader>av :tabnew ~/.vim/local.vim<CR>
-nnoremap <leader>rv :source ~/.vim/local.vim<CR>
+nnoremap <leader>av :tabnew ~/.vim/local-bepo.vim<CR>
+nnoremap <leader>rv :source ~/.vim/local-bepo.vim<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -128,7 +128,7 @@ let ignore .= '|.bzr'
 " endif
 "
 "NERD Tree
-nnoremap <F12> :NERDTreeToggle<cr>
+nnoremap <F12> :NERDTreeTabsToggle<cr>
 inoremap <F12> <esc>:NERDTreeToggle<cr><c-w>la
 let g:nerdtree_tabs_open_on_gui_startup=1
 let g:NERDTreeIgnore = [ignore]

@@ -73,8 +73,8 @@ nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>" viwc"<esc>pa"<esc>
 nnoremap <leader>' viwc'<esc>pa'<esc>
 
-nnoremap <leader>av :tabnew ~/.vim/local.vim<CR>
-nnoremap <leader>rv :source ~/.vim/local.vim<CR>
+nnoremap <leader>av :tabnew ~/.vim/local-classic.vim<CR>
+nnoremap <leader>rv :source ~/.vim/local-classic.vim<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
