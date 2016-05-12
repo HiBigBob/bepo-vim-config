@@ -92,6 +92,7 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 nnoremap <leader>f :Ag "\b<C-R><C-W>\b"<CR><CR><C-w>
+nnoremap <leader>z :Ag "
 nnoremap <leader>o <c-w>gfn<cr>
 
 "nnoremap <leader>p :CtrlP<cr>
@@ -240,30 +241,10 @@ let g:ctrlp_prompt_mappings = {
     \ 'PrtSelectMove("b")':   ['<End>', '<kEnd>'],
     \ 'PrtSelectMove("u")':   ['<PageUp>', '<kPageUp>'],
     \ 'PrtSelectMove("d")':   ['<PageDown>', '<kPageDown>'],
-    \ 'PrtHistory(-1)':       ['<c-b>'],
-    \ 'PrtHistory(1)':        ['<c-p>'],
-    \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
-    \ 'AcceptSelection("h")': ['L', '<c-cr>'],
-    \ 'AcceptSelection("t")': ['V'],
-    \ 'AcceptSelection("v")': ['D', '<RightMouse>'],
     \ 'ToggleFocus()':        ['<s-tab>'],
     \ 'ToggleRegex()':        ['<c-r>'],
     \ 'ToggleByFname()':      ['<c-j>'],
-    \ 'ToggleType(1)':        ['T', '<c-up>'],
-    \ 'ToggleType(-1)':       ['N', '<c-down>'],
-    \ 'PrtExpandDir()':       ['<tab>'],
-    \ 'PrtInsert("c")':       ['<MiddleMouse>', '<insert>'],
-    \ 'PrtInsert()':          ['<c-\>'],
-    \ 'PrtCurStart()':        ['<c-a>'],
-    \ 'PrtCurEnd()':          ['<c-e>'],
-    \ 'PrtCurLeft()':         ['<c-h>', '<left>', '<c-^>'],
-    \ 'PrtCurRight()':        ['<right>'],
-    \ 'PrtClearCache()':      ['<F5>'],
-    \ 'PrtDeleteEnt()':       ['<F7>'],
-    \ 'CreateNewFile()':      ['<c-y>'],
-    \ 'MarkToOpen()':         ['<c-z>'],
-    \ 'OpenMulti()':          ['<c-o>'],
-    \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
+    \ 'PrtClearCache()':      ['<F5>']
     \ }
 
 set encoding=utf-8
@@ -377,5 +358,3 @@ call unite#custom#profile('default', 'context', {
 \   'winheight': 10,
 \   'direction': 'botright',
 \ })
-
-inoremap <CR> <esc>o
