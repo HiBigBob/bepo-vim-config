@@ -25,7 +25,7 @@ nnoremap <S-left> :tabp<CR>
 inoremap <c-u> <esc>viwUi
 
 " remove last search highlight
-nnoremap <C-l> :nohlsearch<CR><C-l>
+nnoremap <leader>l :nohlsearch<CR>
 
 " Wrap a word in double quotes
 nnoremap <leader>" vaw<esc>i"<esc>hbi"<esc>lel

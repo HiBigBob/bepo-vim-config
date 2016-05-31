@@ -32,12 +32,12 @@ exe 'vnoremap <script> <C-V> ' . paste#paste_cmd['v']
 noremap <C-A> <esc>ggVG<CR>
 
 " Ctrl+Z -> undo
-noremap <C-Z> u
-inoremap <C-Z> <C-O>u
+" noremap <C-Z> u
+" inoremap <C-Z> <C-O>u
 
 " Ctrl+Y -> redo
-noremap <C-Y> <C-R>
-inoremap <C-Y> <C-O><C-R>
+" noremap <C-Y> <C-R>
+" inoremap <C-Y> <C-O><C-R>
 
 " backspace in Visual mode deletes selection
 vnoremap <BS> d
@@ -337,16 +337,6 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-
-let g:neosnippet#disable_runtime_snippets = {
-        \   '_' : 1,
-        \ }
-
-let g:neosnippet#snippets_directory='~/.vim/mydir'
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
 
  " For conceal markers.
 if has('conceal')

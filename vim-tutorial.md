@@ -47,6 +47,7 @@
 | Open file in a new tab                           | `<c-t>`               |      | CtrlP            |
 | Open file in verticale split                     | `<c-x>`               |      | CtrlP            |
 | Open file in horizontale split                   | `<c-v>`               |      | CtrlP            |
+| Toggle search by name                            | `<c-j>`               |      | CtrlP            |
 |                                                                                                    |
 | __NERDTree__                                                                                       |
 |                                                                                                    |
@@ -62,7 +63,26 @@
 | Jump to the root node                            | `P`                   |      | Tree Node        |
 | Jump to current nodes parent                     | `p`                   |      | Tree Node        |
 |                                                                                                    |
+| __Search__                                                                                         |
+|                                                                                                    |
+| Find word in file                                | `/`                   | n    |                  |
+| Find this word in project                        | `<leader>f`           | n    |                  |
+| Find word in project                             | `<leader>z`           | n    |                  |
+| Open result in new tab                           | `<leader>o`           | n    |                  |
+| Next occurence in file                           | `*`                   | n    |                  |
+| Clear highlights                                 | `<leader>l`           | n    |                  |
+| Navigate in quickfix - next                      | `:cn`                 | n    |                  |
+| Navigate in quickfix - previous                  | `:cp`                 | n    |                  |
+|                                                                                                    |
+| __Snippet__                                                                                        |
+|                                                                                                    |
+| Select next proposal in menu                     | `<c-n>`               | i    | complete menu    |
+| Select snippet                                   | `<tab>`               | i    | complete menu    |
+| Next placeholder                                 | `<c-j>`               | i    | complete menu    |
+| Previous placeholder                             | `<c-z>`               | i    | complete menu    |
+|                                                                                                    |
 | __Align__                                                                                          |
+|                                                                                                    |
 | Start interactive alignment                      | `EasyAlign`           | v    | selection        |
 | Align next paragraph on =                        | `<leader>a=`          | n    |                  |
 | Align next paragraph on :                        | `<leader>a:`          | n    |                  |
@@ -73,29 +93,29 @@
 | Documentation                                    | `:help :EasyAlign`    |      |                  |
 |                                                                                                    |
 | __Format__                                                                                         |
+|                                                                                                    |
 | Format the file                                  | `<c-f>`               | n    | js,json,html,css |
 | Format the selection                             | `<c-f>`               | n    | js,json,html,css |
 |                                                                                                    |
 | __Multiple Cursor__                                                                                |
+|                                                                                                    |
 | Next                                             | `<c-m>`               | n    |                  |
 | Skip                                             | `<c-x>`               | n    |                  |
 | Previous                                         | `<c-z>`               | n    |                  |
 | Exit                                             | `<esc>`               | n    |                  |
-| Multiple cursor insert                           | `i`                   |      | multiple cursor  |
-| Multiple cursor remove                           | `x`                   |      | multiple cursor  |
-|                                                                                                    |
-| __AutoCompletion__                                                                                 |
-| Select next proposal in menu                     | `<tab>`               | i    | complete menu    |
-| Select previous proposal in menu                 | `<shift><tab>`        | i    | complete menu    |
+| Replace                                          | `c`                   |      | multiple cursor  |
+| Remove                                           | `x`                   |      | multiple cursor  |
+| Insert                                           | `vi`                  |      | multiple cursor  |
 |                                                                                                    |
 | __Git__                                                                                            |
+|                                                                                                    |
 | git diff                                         | `:Gdiff`              | n    |                  |
 | git status                                       | `:Gstatus`            | n    |                  |
 | git commit                                       | `:Gcommit`            | n    |                  |
 | git blame                                        | `:Gblame`             | n    |                  |
 | git rm                                           | `:Gremove`            | n    |                  |
 |                                                                                                    |
-| __Search__                                                                                         |
-| clear highlights                                 | `<c-l>`               | n    |                  |
 |                                                                                                    |
+| __AutoCompletion html__                                                                            |
 |                                                                                                    |
+| Tranform text to tag (div to <div>)              | `<c-y>,`              | n    |                  |
