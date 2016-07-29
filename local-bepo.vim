@@ -22,6 +22,9 @@ set guifont=Monospace\ 8
 " Ctrl+C -> Copy to clipboard
 vnoremap <C-C> "+ygv
 
+" Ctrl+Q -> alias Ctrl+V for visual mode
+noremap <C-B> <C-V>
+
 " Ctrl+V -> Paste from clipboard
 map <C-V> "+gP
 cmap <C-V> <C-R>+
@@ -53,8 +56,8 @@ map <pagedown> }
 imap <pageup> <nop>
 imap <pagedown> <nop>
 
-inoremap ss <esc> :w<cr>
-inoremap rr <esc>
+inoremap à <esc> :w<cr>
+inoremap vv <esc>
 noremap à :w<cr>
 
 nnoremap <c-n> :tabn<CR>
@@ -96,8 +99,7 @@ nnoremap <leader>z :Ag "
 nnoremap <leader>o <c-w>gfn<cr>
 
 "nnoremap <leader>p :CtrlP<cr>
-nnoremap <c-d> :CtrlPMRUFiles<CR>
-nnoremap <c-l> :CtrlP<CR>
+" nnoremap <c-d> :CtrlPMRUFiles<CR>
 nnoremap <c-g> :CtrlPFunky<Cr>
 let g:ctrlp_max_files=0
 
@@ -226,7 +228,6 @@ let NERDTreeMapActivateNode = 'q'
 
 " CTRLP
 let g:ctrlp_by_filename = 1
-let g:ctrlp_custom_ignore = 'vendor\|cache'
 
 let g:ctrlp_extensions = ['undo', 'bookmarkdir']
 
@@ -246,6 +247,8 @@ let g:ctrlp_prompt_mappings = {
     \ 'ToggleByFname()':      ['<c-j>'],
     \ 'PrtClearCache()':      ['<F5>']
     \ }
+let g:ctrlp_open_new_file = 't'
+let g:ctrlp_custom_ignore = 'node_modules|vendor|.git|cache'
 
 set encoding=utf-8
 scriptencoding utf-8
@@ -342,9 +345,24 @@ let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 if has('conceal')
   set conceallevel=2 concealcursor=nvi
 endif
-" Like ctrlp.vim settings.
+
 call unite#custom#profile('default', 'context', {
 \   'start_insert': 1,
 \   'winheight': 10,
 \   'direction': 'botright',
 \ })
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+nnoremap <c-d> :Unite file_mru<CR>
+" nnoremap <silent> <Leader>a :call fzf#run({
+" \   'down': '~30%',
+" \   'sink':  'botright split' })<CR>
+

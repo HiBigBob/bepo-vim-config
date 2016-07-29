@@ -49,5 +49,11 @@ Plug 'shawncplus/phpcomplete.vim'
 Plug 'mattn/emmet-vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'ryanoasis/vim-devicons'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'Shougo/neomru.vim'
 
 call plug#end()
+

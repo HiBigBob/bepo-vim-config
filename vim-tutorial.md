@@ -10,9 +10,15 @@
 | __Basics__                                                                                         |
 |                                                                                                    |
 | Insert                                           | `i`                   | n    |                  |
+| Insert at beginning of the line                  | `I`                   | n    |                  |
+| Insert after charactere                          | `a`                   | n    |                  |
+| Insert at end of the line                        | `A`                   | n    |                  |
 | Cancel                                           | `u`                   | n    |                  |
 | Save                                             | `:w`                  | n    |                  |
+| Save                                             | `à`                   | n    |                  |
 | Quit                                             | `:q`                  | n    |                  |
+| Quit                                             | `<leader>q`           | n    |                  |
+| Esc                                              | `vv`                  | i    |                  |
 |                                                                                                    |
 | __Copy__                                                                                           |
 |                                                                                                    |
@@ -48,6 +54,7 @@
 | Open file in verticale split                     | `<c-x>`               |      | CtrlP            |
 | Open file in horizontale split                   | `<c-v>`               |      | CtrlP            |
 | Toggle search by name                            | `<c-j>`               |      | CtrlP            |
+| Toggle type                                      | `<c-f>`               |      | CtrlP            |
 |                                                                                                    |
 | __NERDTree__                                                                                       |
 |                                                                                                    |
@@ -81,6 +88,10 @@
 | Next placeholder                                 | `<c-j>`               | i    | complete menu    |
 | Previous placeholder                             | `<c-z>`               | i    | complete menu    |
 |                                                                                                    |
+| __Autoindent__                                                                                     |
+|                                                                                                    |
+| Start indentation                                | `==`                  | n    |                  |
+|                                                                                                    |
 | __Align__                                                                                          |
 |                                                                                                    |
 | Start interactive alignment                      | `EasyAlign`           | v    | selection        |
@@ -99,6 +110,7 @@
 |                                                                                                    |
 | __Multiple Cursor__                                                                                |
 |                                                                                                    |
+| Insert multiple line                             | `<c-b>I<text><esc>`   | n    |                  |
 | Next                                             | `<c-m>`               | n    |                  |
 | Skip                                             | `<c-x>`               | n    |                  |
 | Previous                                         | `<c-z>`               | n    |                  |
@@ -115,7 +127,24 @@
 | git blame                                        | `:Gblame`             | n    |                  |
 | git rm                                           | `:Gremove`            | n    |                  |
 |                                                                                                    |
-|                                                                                                    |
 | __AutoCompletion html__                                                                            |
 |                                                                                                    |
 | Tranform text to tag (div to <div>)              | `<c-y>,`              | n    |                  |
+
+
+# Tmux
+
+|                                                  | Command               |      |                  |
+|--------------------------------------------------|-----------------------|:----:|------------------|
+| __Basics__                                                                                         |
+|                                                                                                    |
+| Change next window                               | `<c-b>n`              |      |                  |
+| Change previous window                           | `<c-b>p`              |      |                  |
+| Change pane                                      | `<c-b>up`             |      |                  |
+| Active scroll                                    | `<c-b>pgUp`           |      |                  |
+| Kill the current pane                            | `<c-b>x`              |      |                  |
+| Create another window                            | `<c-b>c`              |      |                  |
+| List sessions                                    | `<c-b>s`              |      |                  |
+| List windows                                     | `<c-b>w`              |      |                  |
+| Split window/pane horizontally                   | `<c-b>"`              |      |                  |
+| Split window/pane vertically                     | `<c-b>%`              |      |                  |
