@@ -76,6 +76,12 @@ nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>" viwc"<esc>pa"<esc>
 nnoremap <leader>' viwc'<esc>pa'<esc>
 
+nnoremap <leader>b :Unite grep <CR>
+nnoremap <leader>a :Unite buffer <CR>
+nnoremap <c-d> :Unite file_mru<CR>
+nnoremap <leader>p :FZF <CR>
+nnoremap <leader>n :bn <CR>
+nnoremap <leader>x :bd <CR>
 nnoremap <leader>av :tabnew ~/.vim/local-bepo.vim<CR>
 nnoremap <leader>rv :source ~/.vim/local-bepo.vim<CR>
 
@@ -85,6 +91,13 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+let g:unite_split_rule = 'botright'
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+let g:unite_enable_start_insert = 0
+let g:unite_source_hisory_yank_enable = 1
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
@@ -93,6 +106,12 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
   let g:ctrlp_use_caching = 0
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts =
+    \ '-i --smart-case --nogroup --nocolor --ignore-dir={.git, vendor, node_modules}'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_rec_async_command =
+    \ 'ag --follow --nocolor --nogroup --hidden -g ""'
 endif
 nnoremap <leader>f :Ag "\b<C-R><C-W>\b"<CR><CR><C-w>
 nnoremap <leader>z :Ag "
@@ -360,9 +379,28 @@ let g:fzf_action = {
 " Default fzf layout
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~40%' }
-
+" let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 nnoremap <c-d> :Unite file_mru<CR>
 " nnoremap <silent> <Leader>a :call fzf#run({
 " \   'down': '~30%',
 " \   'sink':  'botright split' })<CR>
 
+" Plugin key-mappings.
+imap <C-y>     <Plug>(neosnippet_expand_or_jump)
+smap <C-y>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-y>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+let g:neosnippet#snippets_directory='~/.vim/mydir'
