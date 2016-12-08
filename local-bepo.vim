@@ -80,6 +80,7 @@ nnoremap <leader>b :Unite grep <CR>
 nnoremap <leader>a :Unite buffer <CR>
 nnoremap <c-d> :Unite file_mru<CR>
 nnoremap <leader>p :FZF <CR>
+nnoremap <leader>é :Lines <CR>
 nnoremap <leader>n :bn <CR>
 nnoremap <leader>x :bd <CR>
 nnoremap <leader>av :tabnew ~/.vim/local-bepo.vim<CR>
@@ -150,8 +151,8 @@ let ignore .= '|.bzr'
 " endif
 "
 "NERD Tree
-nnoremap <F12> :NERDTreeTabsToggle<cr>
-inoremap <F12> <esc>:NERDTreeToggle<cr><c-w>la
+nnoremap <F7> :NERDTreeTabsToggle<cr>
+inoremap <F7> <esc>:NERDTreeToggle<cr><c-w>la
 let g:nerdtree_tabs_open_on_gui_startup=1
 let g:NERDTreeIgnore = [ignore]
 
@@ -159,7 +160,7 @@ let g:NERDTreeIgnore = [ignore]
 nnoremap <leader>h :GundoToggle<cr>
 
 " EasyMotion
-nmap  è <Plug>(easymotion-w)
+nmap  è <Plug>(easymotion-bd-w)
 
 " {W} -> [É]
 " ——————————
@@ -279,6 +280,7 @@ let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_inactive_collapse = 0
 let g:virtualenv_auto_activate = 1
+let g:airline_section_b = '%{strftime("%H:%M")}'
 let g:airline_section_y = ''
 let g:airline_theme = 'term'
 let g:airline_left_sep=''
@@ -293,7 +295,8 @@ let g:tmuxline_theme = 'airline_insert'
 let g:tmuxline_preset = {
       \'a'    : '#S',
       \'win'  : ['#I', '#W'],
-      \'cwin' : ['#I', '#W', '#F']}
+      \'cwin' : ['#I', '#W', '#F'],
+      \'y'    : ['%R']}
 
 """""""""""""""""""""""
 "  promptline config  "
@@ -386,9 +389,9 @@ nnoremap <c-d> :Unite file_mru<CR>
 " \   'sink':  'botright split' })<CR>
 
 " Plugin key-mappings.
-imap <C-y>     <Plug>(neosnippet_expand_or_jump)
-smap <C-y>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-y>     <Plug>(neosnippet_expand_target)
+imap <F6>     <Plug>(neosnippet_expand_or_jump)
+smap <F6>     <Plug>(neosnippet_expand_or_jump)
+xmap <F6>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 "imap <expr><TAB>

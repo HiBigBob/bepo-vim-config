@@ -57,6 +57,7 @@ Plug 'Shougo/neomru.vim'
 Plug 'mhinz/vim-startify'
 Plug 'shougo/neosnippet'
 Plug 'shougo/neosnippet-snippets'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
