@@ -151,8 +151,8 @@ let ignore .= '|.bzr'
 " endif
 "
 "NERD Tree
-nnoremap <F7> :NERDTreeTabsToggle<cr>
-inoremap <F7> <esc>:NERDTreeToggle<cr><c-w>la
+nnoremap <F5> :NERDTreeTabsToggle<cr>
+inoremap <F5> <esc>:NERDTreeToggle<cr><c-w>la
 let g:nerdtree_tabs_open_on_gui_startup=1
 let g:NERDTreeIgnore = [ignore]
 
