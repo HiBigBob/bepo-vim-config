@@ -47,9 +47,6 @@ vnoremap <BS> d
 
 noremap . :
 
-nmap <F3> o<Esc>
-nmap <F4> O<Esc>
-
 " PageUp/Down -> nop
 map <pageup> {
 map <pagedown> }
@@ -114,7 +111,7 @@ if executable('ag')
   let g:unite_source_rec_async_command =
     \ 'ag --follow --nocolor --nogroup --hidden -g ""'
 endif
-nnoremap <leader>f :Ag "\b<C-R><C-W>\b"<CR><CR><C-w>
+nnoremap <leader>f :Unite -silent grep:.:-iR:"\<C-R><C-W>\"<CR>
 nnoremap <leader>z :Ag "
 nnoremap <leader>o <c-w>gfn<cr>
 
@@ -150,6 +147,8 @@ let ignore .= '|.bzr'
 "   endfor
 " endif
 "
+"Tagbar
+nnoremap <F4> :TagbarToggle<cr>
 "NERD Tree
 nnoremap <F5> :NERDTreeTabsToggle<cr>
 inoremap <F5> <esc>:NERDTreeToggle<cr><c-w>la
@@ -407,3 +406,16 @@ if has('conceal')
 endif
 
 let g:neosnippet#snippets_directory='~/.vim/mydir'
+
+au FileType go nmap <leader>r <Plug>(go-run)
+let g:vimfiler_tree_indentation = 4
+let g:vimfiler_quick_look_command = 'gloobus-preview'
+call vimfiler#custom#profile('default', 'context', {
+      \ 'safe' : 0,
+      \ 'edit_action' : 'tabopen',
+      \ })
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_marked_file_icon = '*'
